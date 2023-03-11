@@ -20,3 +20,9 @@ def all_comments(request):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
+@api_view(['GET'])
+def video_comments( video_id):
+    comments = Comment.objects.filter(video_id=video_id)
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
