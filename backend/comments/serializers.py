@@ -7,4 +7,4 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = ["id", "user", "video_id", "text", "likes", "dislikes"]
         depth = 1
-    # user_id = serializers.IntegerField(write_only=True)
+    # user_id = serializers.IntegerField(write_only=True) add "user_id" in fields?
