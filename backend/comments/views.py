@@ -27,22 +27,28 @@ def all_comments(request):
 @api_view(['GET']) # Get all comments for a specific video without user login
 @permission_classes([AllowAny])
 def video_comments(request):
-#     comments = Comment.objects.filter(video_id=request.video_id)
-#     serializer = CommentSerializer(comments, many=True)
-#     return Response(serializer.data)
-    comments = Comment.objects.all()
-    # video_id = VideoId.objects.all()
+#  video_id enter in the body of request   
+    # comments = Comment.objects.filter(video_id=request.video_id)
+    # serializer = CommentSerializer(comments, many=True)
+    # return Response(serializer.data)
+
     search_param = request.query_param.get('video_id')
 
     if search_param:
         comments = Comment.objects.filter(video_id__id=search_param)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
+        # serializer = CommentSerializer(comments, many=True)
+        # return Response(serializer.data)
+    # else:
+    #     comments = Comment.objects.all()
+    #     serializer = CommentSerializer(comments, many=True)
+    #     return Response(serializer.data)
+    
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
 
 
 
-
-@api_view(['GET', 'POST']) # Get all/add new comment after user logged in
+@api_view(['GET', 'POST']) # Get all/add new comment of an user
 @permission_classes([IsAuthenticated])
 def user_comment(request):
     # print(
@@ -54,7 +60,7 @@ def user_comment(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'GET':
-        comments = Comment.objects.filter(user_id=request.user.id)
+        comments = Comment.objects.filter(user_id=request.user_id)
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data)
 
