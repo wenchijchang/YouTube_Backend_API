@@ -1,0 +1,8 @@
+.video-card {
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.video-title {
+  max-width: 320px;
+}
