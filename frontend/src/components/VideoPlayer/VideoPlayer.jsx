@@ -7,6 +7,13 @@ const VideoPlayer = () => {
   const [videoID, setVideoId] = useState("2FVfJTGpXnU");
   const [comments, setComments] = useState([]);
 
+  async function getComments(video) {
+    let response = await axios.get(
+      `http://127.0.0.1:8000/api/comments/all/${video.id.videoId}/`
+    );
+    setComments(response.data);
+  }
+
   return (
     <div>
       <div className="container">
@@ -26,7 +33,6 @@ const VideoPlayer = () => {
           <li>
             <CommentList comments={comments} />
           </li>
-          ))}
         </ul>
       </div>
     </div>
