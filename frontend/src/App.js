@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 import VidHomePage from "./pages/VidHomePage/VidHomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import DisplaySearchPage from "./pages/DisplaySearchPage/DisplaySearchPage";
 
 // Component Imports
 // import Navbar from "./components/NavBar/NavBar";
@@ -34,8 +35,9 @@ function App() {
         /> */}
         {/* <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} /> */}
-        {/* <Route exact path="/" element={<VidHomePage />} /> */}
-        <Route path="/video/:id" element={<VideoPlayer />} />
+        <Route exact path="/" element={<VidHomePage />} />
+        <Route path="/search/:searchTerm" element={<DisplaySearchPage />} />
+        {/* <Route path="/video/:id" element={<VideoPlayer />} /> */}
       </Routes>
       <Footer />
     </div>

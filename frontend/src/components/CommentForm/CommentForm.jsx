@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CommentForm = ({ comment }) => {
+const CommentForm = () => {
   const [comment, setComment] = useState("");
 
   function handleSubmit(event) {
