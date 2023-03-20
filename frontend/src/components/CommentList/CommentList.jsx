@@ -1,10 +1,9 @@
 import React from "react";
-import axios from "axios";
 import CommentForm from "../CommentForm/CommentForm";
 
 const CommentList = ({ comments }) => {
   return (
-    <div>
+    <div className="comment-list">
       {comments.map((element) => (
         <CommentForm comment={element} />
       ))}

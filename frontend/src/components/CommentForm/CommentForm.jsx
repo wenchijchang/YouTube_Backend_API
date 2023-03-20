@@ -5,29 +5,29 @@ const CommentForm = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let comment = {
-      video_id: comment.videoId,
-      text: comment,
+    let newComment = {
+      comment: comment,
     };
 
-    comment.addComment(comment);
-    setComment("");
+    comment.addNewComment(newComment);
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      <div className="form-group">
+        <label>Comment</label>
         <input
-          className="comment-form"
+          type="text"
+          className="form-control"
           placeholder="Comment..."
           value={comment}
           onChange={(event) => setComment(event.target.value)}
         />
-        <button type="submit" className="btn btn-outline-dark">
-          Submit
-        </button>
-      </form>
-    </div>
+      </div>
+      <button type="submit" className="btn btn-primary">
+        Submit
+      </button>
+    </form>
   );
 };
 

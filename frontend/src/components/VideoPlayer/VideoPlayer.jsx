@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import VideoList from "../VideoList/VideoList";
 import CommentList from "../CommentList/CommentList";
 import axios from "axios";
+import CommentForm from "../CommentForm/CommentForm";
 
 const VideoPlayer = () => {
   const [videoID, setVideoId] = useState("2FVfJTGpXnU");
@@ -11,7 +12,7 @@ const VideoPlayer = () => {
     let response = await axios.get(
       `http://127.0.0.1:8000/api/comments/all/${video.id.videoId}/`
     );
-    setComments(response.data);
+    setComments(response.data.comment.text);
   }
 
   return (
@@ -27,11 +28,13 @@ const VideoPlayer = () => {
           frameborder="0"
         ></iframe>
       </div>
-      <div>{/* COMMENT FORM */}</div>
+      <div>
+        <CommentForm />
+      </div>
       <div>
         <ul>
           <li>
-            <CommentList comments={comments} />
+            <CommentList key={comments.id} comments={comments.text} />
           </li>
         </ul>
       </div>
