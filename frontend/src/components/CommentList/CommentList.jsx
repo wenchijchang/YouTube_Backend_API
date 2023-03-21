@@ -1,11 +1,11 @@
 import React from "react";
-import CommentForm from "../CommentForm/CommentForm";
+import SingleComment from "../SingleComment/SingleComment";
 
 const CommentList = ({ comments }) => {
   return (
     <div className="comment-list">
-      {comments.map((element) => (
-        <CommentForm comment={element} />
+      {comments.map((comment) => (
+        <SingleComment comment={comment} />
       ))}
     </div>
   );
