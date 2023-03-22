@@ -32,10 +32,10 @@ def video_comments(request):
     # serializer = CommentSerializer(comments, many=True)
     # return Response(serializer.data)
 
-    search_param = request.query_param.get('video_id')
+    search_param = request.query_params.get('video_id')
 
     if search_param:
-        comments = Comment.objects.filter(video_id__id=search_param)
+        comments = Comment.objects.filter(video_id=search_param)
         # serializer = CommentSerializer(comments, many=True)
         # return Response(serializer.data)
     # else:

@@ -25,7 +25,6 @@ const VidHomePage = () => {
   return (
     <div>
       <VideoList videos={videos} />
-      {/* {videos && videos.map((video) => <div key={video.id}>{video.title}</div>)} */}
     </div>
   );
 };

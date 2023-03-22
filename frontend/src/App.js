@@ -35,8 +35,8 @@ function App() {
         /> */}
         {/* <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} /> */}
-        {/* <Route exact path="/" element={<VidHomePage />} /> */}
-        {/* <Route path="/search/:searchTerm" element={<DisplaySearchPage />} /> */}
+        <Route exact path="/" element={<VidHomePage />} />
+        <Route path="/search/:searchTerm" element={<DisplaySearchPage />} />
         <Route path="/video/:id" element={<VideoPlayer />} />
       </Routes>
       <Footer />
