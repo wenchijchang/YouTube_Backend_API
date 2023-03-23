@@ -28,7 +28,7 @@ const CommentForm = ({ videoId, getComments }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label>Comment</label>
+        <label style={{ marginRight: "10px" }}>Comment</label>
         <input
           type={"text"}
           className="form-control"
@@ -37,7 +37,11 @@ const CommentForm = ({ videoId, getComments }) => {
           onChange={(event) => setComment(event.target.value)}
         />
       </div>
-      <button type="submit" className="btn btn-primary">
+      <button
+        type="submit"
+        className="btn btn-primary"
+        style={{ marginTop: "10px" }}
+      >
         Submit
       </button>
     </form>

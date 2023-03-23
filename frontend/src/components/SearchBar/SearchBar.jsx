@@ -16,18 +16,19 @@ const SearchBar = () => {
   };
 
   return (
-    <form className="row" onSubmit={handleSubmit} style={{}}>
-      <div className="col-10">
-        <input
-          className="search-bar"
-          placeholder="Search..."
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-      </div>
-      <div className="col-2">
-        <button>Search</button>
-      </div>
+    <form className="form-inline" onSubmit={handleSubmit}>
+      <input
+        className="form-control mr-xl-2"
+        placeholder="Search..."
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
+      />
+      <button
+        className="btn btn-outline-success my-2 my-sm-0"
+        style={{ marginLeft: "10px" }}
+      >
+        Search
+      </button>
     </form>
   );
 };

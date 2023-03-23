@@ -13,7 +13,7 @@ const VideoPlayer = () => {
   const getComments = async () => {
     try {
       let response = await axios.get(
-        `http://127.0.0.1:8000/api/comments/by_vid_id?video_id=${videoId}`
+        `http://127.0.0.1:8000/api/comments/by_vid_id?video_id=${id}`
       );
       console.log(response);
       // video_id=${videoId} or v=${id} ?
@@ -30,7 +30,7 @@ const VideoPlayer = () => {
   // pass in id in [] ?
 
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", margin: "50px 50px 0 50px" }}>
       <div>
         <div className="container">
           <iframe
@@ -42,11 +42,11 @@ const VideoPlayer = () => {
             frameborder="0"
           ></iframe>
         </div>
-        <div>
+        <div style={{ marginTop: "20px" }}>
           <CommentForm videoId={id} getComments={getComments} />
         </div>
         <div>
-          <ul>
+          <ul style={{ listStyleType: "none" }}>
             <li>
               <CommentList comments={comments} />
             </li>

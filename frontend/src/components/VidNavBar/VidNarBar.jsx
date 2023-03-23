@@ -6,15 +6,9 @@ const VidNavBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
-    <div className="navBar">
-      <ul>
-        <li>
-          <h1>YouVideos</h1>
-        </li>
-        <li>
-          <SearchBar setSearchTerm={setSearchTerm} />
-        </li>
-      </ul>
+    <div className="navbar">
+      <h1>YouVideos</h1>
+      <SearchBar setSearchTerm={setSearchTerm} />
     </div>
   );
 };

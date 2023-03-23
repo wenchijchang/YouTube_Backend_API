@@ -23,7 +23,7 @@ const VidHomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div style={{ marginTop: "50px" }}>
       <VideoList videos={videos} />
     </div>
   );

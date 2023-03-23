@@ -1,7 +1,7 @@
 // General Imports
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-// import "./App.css";
+import "./App.css";
 
 // Pages Imports
 // import HomePage from "./pages/HomePage/HomePage";
@@ -25,17 +25,17 @@ function App() {
       {/* <Navbar /> */}
       <VidNavBar />
       <Routes>
-        {/* <Route
+        <Route
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <VidHomePage />
             </PrivateRoute>
           }
-        /> */}
-        {/* <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} /> */}
-        <Route exact path="/" element={<VidHomePage />} />
+        />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        {/* <Route exact path="/" element={<VidHomePage />} /> */}
         <Route path="/search/:searchTerm" element={<DisplaySearchPage />} />
         <Route path="/video/:id" element={<VideoPlayer />} />
       </Routes>
