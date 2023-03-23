@@ -25,19 +25,26 @@ function App() {
       {/* <Navbar /> */}
       <VidNavBar />
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <PrivateRoute>
-              <VidHomePage />
+              <HomePage />
+            </PrivateRoute>
+          }
+        /> */}
+        <Route exact path="/" element={<VidHomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/search/:searchTerm" element={<DisplaySearchPage />} />
+        <Route
+          path="/video/:id"
+          element={
+            <PrivateRoute>
+              <VideoPlayer />
             </PrivateRoute>
           }
         />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        {/* <Route exact path="/" element={<VidHomePage />} /> */}
-        <Route path="/search/:searchTerm" element={<DisplaySearchPage />} />
-        <Route path="/video/:id" element={<VideoPlayer />} />
       </Routes>
       <Footer />
     </div>

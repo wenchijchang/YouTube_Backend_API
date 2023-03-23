@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const CommentForm = ({ videoId, getComments }) => {
   const [comment, setComment] = useState("");
   const [user, token] = useAuth();
+  useNavigate("/");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -17,8 +19,14 @@ const CommentForm = ({ videoId, getComments }) => {
 
     const response = await axios.post(
       "http://127.0.0.1:8000/api/comments/",
-      newComment
+      newComment,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
     );
+
     if (response.status === 201) {
       await getComments();
     }
