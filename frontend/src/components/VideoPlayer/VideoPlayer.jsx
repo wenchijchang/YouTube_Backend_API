@@ -5,15 +5,18 @@ import axios from "axios";
 import CommentForm from "../CommentForm/CommentForm";
 import RelatedVideos from "../RelatedVideos/RelatedVideos";
 
+import { useLocation } from "react-router-dom";
+
 const VideoPlayer = () => {
-  const { id } = useParams();
-  const [videoId, setVideoId] = useState(id);
+  // const [videoId, setVideoId] = useState(id);
   const [comments, setComments] = useState([]);
+
+  const { state } = useLocation();
 
   const getComments = async () => {
     try {
       let response = await axios.get(
-        `http://127.0.0.1:8000/api/comments/by_vid_id?video_id=${id}`
+        `http://127.0.0.1:8000/api/comments/by_vid_id?video_id=${state.id}`
       );
       console.log(response);
       // video_id=${videoId} or v=${id} ?
@@ -26,7 +29,7 @@ const VideoPlayer = () => {
 
   useEffect(() => {
     getComments();
-  }, [id]);
+  }, [state.id]);
   // pass in id in [] ?
 
   return (
@@ -38,12 +41,14 @@ const VideoPlayer = () => {
             type="text/html"
             width="640"
             height="360"
-            src={`https://www.youtube.com/embed/${id}?autoplay=1&origin=http://example.com`}
+            src={`https://www.youtube.com/embed/${state.id}?autoplay=1&origin=http://example.com`}
             frameborder="0"
           ></iframe>
+          <h5>{state.title}</h5>
+          <h5>{state.description}</h5>
         </div>
         <div style={{ marginTop: "20px" }}>
-          <CommentForm videoId={id} getComments={getComments} />
+          <CommentForm videoId={state.id} getComments={getComments} />
         </div>
         <div>
           <ul style={{ listStyleType: "none" }}>
@@ -54,7 +59,7 @@ const VideoPlayer = () => {
         </div>
       </div>
       <div>
-        <RelatedVideos videoId={id} />
+        <RelatedVideos videoId={state.id} />
       </div>
     </div>
   );
