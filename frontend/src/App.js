@@ -38,7 +38,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search/:searchTerm" element={<DisplaySearchPage />} />
         <Route
-          path="/video/:id"
+          path="/video"
           element={
             <PrivateRoute>
               <VideoPlayer />
